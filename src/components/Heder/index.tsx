@@ -12,10 +12,20 @@ export function Header() {
 
       <div className="flex items-center gap-5">
         <Link href="https://github.com/2joaopedro/pokedex">
-          <Image src={GitHub} alt="GitHub" width={35} />
+          <Image
+            src={GitHub}
+            alt="GitHub"
+            width={35}
+            className="transform hover:scale-x-[-1] transition-transform duration-1000"
+          />
         </Link>
         <Link href="https://www.linkedin.com/in/jo%C3%A3o-pedro-franchini-56b5821ba/">
-          <Image src={Likedin} alt="Likedin" width={35} />
+          <Image
+            src={Likedin}
+            alt="Likedin"
+            width={35}
+            className="transform hover:scale-x-[-1] transition-transform duration-1000"
+          />
         </Link>
       </div>
     </header>
