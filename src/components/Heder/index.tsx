@@ -1,30 +1,23 @@
+import Logo from './logo.svg'
+import GitHub from './github.svg'
+import Likedin from './linkedin.svg'
+
+import Image from 'next/image'
 import Link from 'next/link'
-import { Logo } from './Logo'
 
 export function Header() {
   return (
-    <header>
-      <nav className=" px-4 lg:px-6 py-2.5 bg-gray-900">
-        <div className="flex items-center justify-between">
-          <Link href="#" className="flex items-center">
-            <Logo />
-            <span className="text-xl font-semibold text-slate-100">
-              Pokedex
-            </span>
-          </Link>
-          <div className="flex gap-5">
-            <span className="text-base font-normal text-slate-100">
-              Code project:
-            </span>
-            <Link
-              href="https://github.com/2joaopedro/pokedex"
-              className="text-base font-normal text-slate-100"
-            >
-              GitHub
-            </Link>
-          </div>
-        </div>
-      </nav>
+    <header className="flex items-center justify-between bg-red-500 shadow-xl min-w-full h-[104] px-16 py-10">
+      <Image src={Logo} alt="logo" />
+
+      <div className="flex items-center gap-5">
+        <Link href="https://github.com/2joaopedro/pokedex">
+          <Image src={GitHub} alt="GitHub" width={35} />
+        </Link>
+        <Link href="https://www.linkedin.com/in/jo%C3%A3o-pedro-franchini-56b5821ba/">
+          <Image src={Likedin} alt="Likedin" width={35} />
+        </Link>
+      </div>
     </header>
   )
 }

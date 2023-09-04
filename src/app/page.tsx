@@ -6,7 +6,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <ul className="grid grid-cols-4 gap-5">
+      <ul className="grid grid-cols-4 gap-10">
         {pokemons.map((pokemon) => (
           <Card
             key={pokemon.id}

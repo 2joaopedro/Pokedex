@@ -6,7 +6,9 @@ type Pokemon = {
 }
 
 export async function getPokemonList(): Promise<Pokemon[]> {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon')
+  const res = await fetch(
+    'https://pokeapi.co/api/v2/pokemon?limit=152&offset=0',
+  )
 
   if (!res.ok) {
     throw new Error('Failed to load Pokémon')

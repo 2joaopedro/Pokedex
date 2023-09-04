@@ -8,12 +8,13 @@ interface CardProps {
 
 export function Card({ id, name, image }: CardProps) {
   return (
-    <div className="bg-gray-400 max-w-full">
-      <div></div>
+    <div className="bg-white shadow-xl rounded-2xl max-h-[300] max-w-[300] p-5 transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 hover:shadow-2xl duration-100 ">
+      <Image src={image} alt={name} width={200} height={200} />
       <div>
-        <p>{id}</p>
-        <p>{name}</p>
-        <Image src={image} alt={name} width={200} height={200} />
+        <p className="text-slate-500 text-sm font-medium">#{id}</p>
+        <p className="text-slate-700 font-bold text-lg">
+          {name.charAt(0).toUpperCase() + name.slice(1)}
+        </p>
       </div>
     </div>
   )
