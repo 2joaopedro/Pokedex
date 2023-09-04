@@ -1,13 +1,17 @@
+import { url } from 'inspector'
 type Pokemon = {
   id: number
   name: string
   url: string
   image: string
+  type: {
+    name: string
+  }[]
 }
 
 export async function getPokemonList(): Promise<Pokemon[]> {
   const res = await fetch(
-    'https://pokeapi.co/api/v2/pokemon?limit=152&offset=0',
+    'https://pokeapi.co/api/v2/pokemon?limit=1080&offset=0',
   )
 
   if (!res.ok) {
@@ -27,6 +31,9 @@ export async function getPokemonList(): Promise<Pokemon[]> {
       id: detailsData.id,
       name: detailsData.name,
       image: detailsData.sprites.other['official-artwork'].front_default,
+      type: detailsData.types.map((types: any) => ({
+        name: types.type.name,
+      })),
     }
   })
 

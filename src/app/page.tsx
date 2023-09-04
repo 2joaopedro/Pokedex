@@ -6,13 +6,14 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
-      <ul className="grid grid-cols-4 gap-10 mt-24">
+      <ul className="grid grid-cols-3 gap-10 mt-24">
         {pokemons.map((pokemon) => (
           <Card
             key={pokemon.id}
             id={pokemon.id}
             name={pokemon.name}
             image={pokemon.image}
+            types={pokemon.type.map((type) => type.name)} // Passar um array de strings
           />
         ))}
       </ul>
