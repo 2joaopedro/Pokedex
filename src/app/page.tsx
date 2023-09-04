@@ -5,8 +5,8 @@ export default async function Home() {
   const pokemons = await getPokemonList()
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <ul className="grid grid-cols-4 gap-10">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
+      <ul className="grid grid-cols-4 gap-10 mt-24">
         {pokemons.map((pokemon) => (
           <Card
             key={pokemon.id}

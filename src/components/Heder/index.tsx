@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between bg-red-500 shadow-xl min-w-full h-[104] px-16 py-10">
+    <header className="flex fixed z-20  items-center justify-between bg-red-500 shadow-xl min-w-full h-[104] px-16 py-10">
       <Image src={Logo} alt="logo" />
 
       <div className="flex items-center gap-5">
