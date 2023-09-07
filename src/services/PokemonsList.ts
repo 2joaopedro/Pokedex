@@ -1,43 +1,32 @@
-import { url } from 'inspector'
-type Pokemon = {
+type PokemonTypes = {
   id: number
   name: string
   url: string
-  image: string
-  type: {
-    name: string
-  }[]
 }
 
-export async function getPokemonList(): Promise<Pokemon[]> {
-  const res = await fetch(
+export async function getPokemonList(): Promise<PokemonTypes[]> {
+  const response = await fetch(
     'https://pokeapi.co/api/v2/pokemon?limit=1080&offset=0',
   )
 
-  if (!res.ok) {
+  if (!response.ok) {
     throw new Error('Failed to load Pokémon')
   }
 
-  const data = await res.json()
+  const data = await response.json()
 
-  const pokemonDetailsPromises = data.results.map(async (result: any) => {
-    const detailsResponse = await fetch(result.url) // Use the result.url to fetch details
-    if (!detailsResponse.ok) {
-      throw new Error(`Failed to load details for Pokémon ${result.name}`)
-    }
-    const detailsData = await detailsResponse.json()
+  const pokemonDetails = data.results.map(async (result: any) => {
+    const response = await fetch(result.url)
 
-    return {
-      id: detailsData.id,
-      name: detailsData.name,
-      image: detailsData.sprites.other['official-artwork'].front_default,
-      type: detailsData.types.map((types: any) => ({
-        name: types.type.name,
-      })),
+    if (!response.ok) {
+      throw new Error('Failed to load Pokémon')
     }
+
+    const data = await response.json()
+
+    return { id: data.id, name: data.name }
   })
-
-  const pokemonList = await Promise.all(pokemonDetailsPromises)
+  const pokemonList = await Promise.all(pokemonDetails)
 
   return pokemonList
 }
