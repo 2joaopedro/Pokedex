@@ -12,11 +12,7 @@ export function Card({ id, name, types }: CardProps) {
 
   let formattedId = idString
 
-  if (idString.length < 2) {
-    formattedId = `00${idString}`
-  } else if (idString.length < 3) {
-    formattedId = `0${idString}`
-  }
+  formattedId = formattedId.padStart(3, '0')
 
   const firstType = types[0]
 

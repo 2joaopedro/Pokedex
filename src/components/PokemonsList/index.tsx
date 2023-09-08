@@ -1,10 +1,6 @@
 import { getPokemonList } from '@/services/PokemonsList'
 import { Card } from '../Card'
 
-interface PokemonList {
-  numColumns: []
-}
-
 export async function PokemonList() {
   const pokemons = await getPokemonList()
 
