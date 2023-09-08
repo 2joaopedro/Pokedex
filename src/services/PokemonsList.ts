@@ -1,4 +1,4 @@
-type PokemonTypes = {
+export type PokemonTypes = {
   id: number
   name: string
   url: string
