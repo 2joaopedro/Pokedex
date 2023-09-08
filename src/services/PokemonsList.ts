@@ -2,6 +2,7 @@ type PokemonTypes = {
   id: number
   name: string
   url: string
+  types: { id: number; name: string }[]
 }
 
 export async function getPokemonList(): Promise<PokemonTypes[]> {
@@ -24,8 +25,16 @@ export async function getPokemonList(): Promise<PokemonTypes[]> {
 
     const data = await response.json()
 
-    return { id: data.id, name: data.name }
+    return {
+      id: data.id,
+      name: data.name,
+      types: data.types.map((type: any) => ({
+        id: type.type.id,
+        name: type.type.name,
+      })),
+    }
   })
+
   const pokemonList = await Promise.all(pokemonDetails)
 
   return pokemonList
