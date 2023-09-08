@@ -6,7 +6,7 @@ type PokemonTypes = {
 
 export async function getPokemonList(): Promise<PokemonTypes[]> {
   const response = await fetch(
-    'https://pokeapi.co/api/v2/pokemon?limit=1080&offset=0',
+    'https://pokeapi.co/api/v2/pokemon?limit=1281&offset=0',
   )
 
   if (!response.ok) {

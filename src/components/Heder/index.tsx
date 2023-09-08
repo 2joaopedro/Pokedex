@@ -7,8 +7,8 @@ import Link from 'next/link'
 
 export function Header() {
   return (
-    <header className="flex fixed z-20  items-center justify-between bg-red-500 shadow-xl min-w-full h-[104] px-16 py-10">
-      <Image src={Logo} alt="logo" />
+    <header className="flex fixed z-20  items-center justify-between bg-red-500 shadow-xl min-w-full h-10 px-16 py-10">
+      <Image src={Logo} alt="logo" className="w-24" />
 
       <div className="flex items-center gap-5">
         <Link href="https://github.com/2joaopedro/pokedex">

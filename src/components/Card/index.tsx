@@ -7,17 +7,25 @@ interface CardProps {
 
 export function Card({ id, name }: CardProps) {
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`
-  return (
-    <div className="flex flex-col bg-white shadow-xl rounded-2xl  p-5 transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 hover:shadow-2xl duration-200 ">
-      <div className="flex items-center justify-center">
-        <Image src={imageUrl} alt={name} width={150} height={150} />
-      </div>
 
-      <span className="text-slate-500 text-sm font-medium">#{id}</span>
-      <div className="flex justify-between">
-        <p className="text-slate-700 font-bold text-lg">
-          {name.charAt(0).toUpperCase() + name.slice(1)}
-        </p>
+  const idString = id.toString()
+
+  let formattedId = idString
+
+  if (idString.length < 2) {
+    formattedId = `00${idString}`
+  } else if (idString.length < 3) {
+    formattedId = `0${idString}`
+  }
+
+  return (
+    <div className="w-72 mh-48 max-h-full bg-white text-gray-700 shadow-lg rounded-2xl flex-col mt-auto mx-auto transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 hover:shadow-2xl duration-200">
+      <div className="flex justify-center aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-52">
+        <Image src={imageUrl} alt="" width={100} height={100} />
+      </div>
+      <div className="flex-col gap-2 mt-4 m-5">
+        <span className="font-normal ">#{formattedId}</span>
+        <h1 className="font-bold text-2xl">{name}</h1>
       </div>
     </div>
   )
