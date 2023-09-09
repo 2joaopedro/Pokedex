@@ -33,10 +33,11 @@ export function Card({ id, name, types }: CardProps) {
         </div>
         {firstType && (
           <div className="flex items-center px-6 py-4">
-            <img
+            <Image
               src={`/types/${firstType.name}.svg`}
               alt={firstType.name}
-              className="w-6 h-6"
+              width={24}
+              height={24}
             />
           </div>
         )}
