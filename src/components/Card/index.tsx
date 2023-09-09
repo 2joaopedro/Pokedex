@@ -18,25 +18,28 @@ export function Card({ id, name, types }: CardProps) {
   const firstName = name.charAt(0).toUpperCase() + name.slice(1)
 
   return (
-    <button className="w-80 mh-48  cursor-pointer bg-white text-gray-700 shadow-lg rounded-2xl flex-col mt-auto mx-auto transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 hover:shadow-2xl duration-200">
-      <div className="flex justify-center sm:h-52 lg:h-52 xl:h-52">
+    <button className="w-80 mx-auto my-4  rounded-2xl bg-white shadow-lg overflow-hidden transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-100 hover:shadow-2xl duration-200">
+      <div className="flex justify-center p-10">
         <Image src={imageUrl} alt="" width={100} height={100} />
       </div>
-      <div className="flex items-end justify-between p-9">
-        <div className="flex flex-col items-start ">
-          <span className="font-normal ">#{formattedId}</span>
-          <strong className="font-bold text-2xl">{firstName}</strong>
+      <div className="flex items-end justify-between p-5">
+        <div className="flex flex-col items-start px-6 py-4">
+          <span className="text-gray-500 text-sm font-medium">
+            #{formattedId}
+          </span>
+          <strong className="text-2xl font-bold text-gray-800">
+            {firstName}
+          </strong>
         </div>
-        <div className="flex items-center">
-          {firstType && (
-            <Image
+        {firstType && (
+          <div className="flex items-center px-6 py-4">
+            <img
               src={`/types/${firstType.name}.svg`}
               alt={firstType.name}
-              width={20}
-              height={20}
+              className="w-6 h-6"
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </button>
   )
