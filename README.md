@@ -1,5 +1,5 @@
 # Pokedex 2023 - ReactJS
-Nesse projeto aprendi a utilizar o taiwnld e o next.js
+Nesse projeto aprendi a utilizar o tailwnld CSS e o next.js
 
 ## Executando o projeto
 Abaixo seguem as instruções para você executar o projeto na sua máquina.
